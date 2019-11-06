@@ -9,7 +9,9 @@ package PatientManagementSystem;
  *
  * @author apper
  */
-public class Secretary extends User
+public abstract class User 
 {
-    
+    protected int id;
+    protected char role;
+    protected String password;
 }

@@ -9,7 +9,7 @@ package PatientManagementSystem;
  *
  * @author apper
  */
-public class Doctor 
+public class Doctor extends User
 {
     
 }
