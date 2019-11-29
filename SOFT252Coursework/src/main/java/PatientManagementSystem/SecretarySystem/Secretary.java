@@ -3,15 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package PatientManagementSystem;
+package PatientManagementSystem.SecretarySystem;
+
+import PatientManagementSystem.User;
 
 /**
  *
  * @author apper
  */
-public abstract class User 
+public class Secretary extends User
 {
-    protected String id;
-    protected String name; 
-    protected String password;
+    
 }

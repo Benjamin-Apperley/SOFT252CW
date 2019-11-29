@@ -3,13 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package PatientManagementSystem;
+package PatientManagementSystem.DoctorSystem;
+
+import PatientManagementSystem.User;
 
 /**
  *
  * @author apper
  */
-public class Patient extends User
+public class Doctor extends User
 {
     
 }

@@ -9,9 +9,9 @@ package PatientManagementSystem;
  *
  * @author apper
  */
-public abstract class User 
+public class DoctorFeedback 
 {
-    protected String id;
-    protected String name; 
-    protected String password;
+    String doctorId;
+    int rating;
+    
 }

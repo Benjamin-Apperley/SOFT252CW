@@ -3,15 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package PatientManagementSystem;
+package PatientManagementSystem.PatientSystem;
+
+import PatientManagementSystem.User;
 
 /**
  *
  * @author apper
  */
-public abstract class User 
+public class Patient extends User
 {
-    protected String id;
-    protected String name; 
-    protected String password;
+    private char gender;
+    private int age;
 }

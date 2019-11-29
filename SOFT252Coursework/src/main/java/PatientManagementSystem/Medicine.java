@@ -9,7 +9,7 @@ package PatientManagementSystem;
  *
  * @author apper
  */
-public class Secretary extends User
+public class Medicine 
 {
     
 }

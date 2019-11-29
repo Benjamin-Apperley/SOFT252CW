@@ -9,9 +9,8 @@ package PatientManagementSystem;
  *
  * @author apper
  */
-public abstract class User 
+public class AccountRequest 
 {
-    protected String id;
-    protected String name; 
-    protected String password;
+    String patientName;
+    
 }
