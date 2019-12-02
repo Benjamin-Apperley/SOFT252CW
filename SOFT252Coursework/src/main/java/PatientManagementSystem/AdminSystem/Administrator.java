@@ -11,7 +11,12 @@ import PatientManagementSystem.User;
  *
  * @author apper
  */
-public class Administator extends User
+public class Administrator extends User
 {
-    
+    public Administrator(String id, String name, String password)
+    {
+        this.id = id;
+        this.name = name;
+        this.password = password;
+    }
 }

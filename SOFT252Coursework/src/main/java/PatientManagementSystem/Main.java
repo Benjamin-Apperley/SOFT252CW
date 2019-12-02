@@ -15,5 +15,7 @@ public class Main
     {
         Login login = new Login();
         login.setVisible(true);
+        
+        User p1 = new Patient("P1234", "John Smith", "pass", 'm', 26);
     }
 }

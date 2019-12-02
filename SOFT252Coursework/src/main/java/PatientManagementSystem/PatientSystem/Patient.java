@@ -15,4 +15,13 @@ public class Patient extends User
 {
     private char gender;
     private int age;
+    
+    public Patient(String id, String name, String password, char gender, int age)
+    {
+        this.id = id;
+        this.name = name;
+        this.password = password;
+        this.gender = gender;
+        this.age =age;
+    }
 }

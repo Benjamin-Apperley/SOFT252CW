@@ -24,5 +24,10 @@ public class Serialize
         return instance;
     }
     
+    public boolean checkId()
+    {
+        
+    }
+    
     
 }

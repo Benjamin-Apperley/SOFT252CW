@@ -13,5 +13,10 @@ import PatientManagementSystem.User;
  */
 public class Doctor extends User
 {
-    
+    public Doctor(String id, String name, String password)
+    {
+        this.id = id;
+        this.name = name;
+        this.password = password;
+    }
 }
