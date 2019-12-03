@@ -17,5 +17,11 @@ public class Main
         login.setVisible(true);
         
         User p1 = new Patient("P1234", "John Smith", "pass", 'm', 26);
+        User p2 = new Patient("P5678", "Kyle Raynor", "pass1", 'm', 27);
+        Serialize.serializeUser((Patient)p1);
+        Serialize.serializeUser((Patient)p2);
+        Serialize.deserializeUser();
     }
+    
+    
 }

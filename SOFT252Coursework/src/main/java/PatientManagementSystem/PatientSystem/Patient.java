@@ -11,7 +11,7 @@ import PatientManagementSystem.User;
  *
  * @author apper
  */
-public class Patient extends User
+public class Patient extends User implements java.io.Serializable
 {
     private char gender;
     private int age;

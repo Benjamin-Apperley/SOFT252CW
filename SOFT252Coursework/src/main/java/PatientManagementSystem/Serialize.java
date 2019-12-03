@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 package PatientManagementSystem;
+import PatientManagementSystem.PatientSystem.Patient;
+import java.io.*; 
 
 /**
  *
@@ -24,10 +26,44 @@ public class Serialize
         return instance;
     }
     
-    public boolean checkId()
+    public static void serializeUser(Patient user)
     {
-        
+        try
+        {
+            FileOutputStream file = new FileOutputStream("Data.txt");
+            ObjectOutputStream out = new ObjectOutputStream(file);
+            out.writeObject(user);
+            out.close();
+            file.close();
+            System.out.println("User successfully serialised ");
+        }
+        catch(IOException i)
+        {
+               i.printStackTrace();     
+        }
     }
     
-    
+    public static void deserializeUser()
+    {
+        Patient u = null;
+        try
+        {
+            FileInputStream file = new FileInputStream("Data.txt");
+            ObjectInputStream in = new ObjectInputStream(file);
+            u = (Patient) in.readObject();
+            in.close();
+            file.close();
+            System.out.println("Deserialised " + u == null);
+            System.out.println(u.name);
+        }
+        catch(IOException i)
+        {
+            i.printStackTrace();
+        }
+        catch(ClassNotFoundException c)
+        {
+            System.out.println("Class not found");
+            c.printStackTrace();
+        }
+    }
 }
