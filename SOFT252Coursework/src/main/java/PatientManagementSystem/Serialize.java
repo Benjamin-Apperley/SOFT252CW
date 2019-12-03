@@ -26,44 +26,43 @@ public class Serialize
         return instance;
     }
     
-    public static void serializeUser(Patient user)
-    {
-        try
-        {
-            FileOutputStream file = new FileOutputStream("Data.txt");
-            ObjectOutputStream out = new ObjectOutputStream(file);
-            out.writeObject(user);
-            out.close();
-            file.close();
-            System.out.println("User successfully serialised ");
-        }
-        catch(IOException i)
-        {
-               i.printStackTrace();     
-        }
-    }
-    
-    public static void deserializeUser()
-    {
-        Patient u = null;
-        try
-        {
-            FileInputStream file = new FileInputStream("Data.txt");
-            ObjectInputStream in = new ObjectInputStream(file);
-            u = (Patient) in.readObject();
-            in.close();
-            file.close();
-            System.out.println("Deserialised " + u == null);
-            System.out.println(u.name);
-        }
-        catch(IOException i)
-        {
+    public static Serializable readObject(String name){
+        Serializable loadedObject = null;
+        try {
+         FileInputStream fileIn = new FileInputStream(name);
+         ObjectInputStream in = new ObjectInputStream(fileIn);
+         loadedObject = (Serializable) in.readObject();
+         in.close();
+         fileIn.close();
+         System.out.println("Data loaded from: "+ name);
+        } catch (IOException i) {
+            System.out.println("File not found.");
             i.printStackTrace();
-        }
-        catch(ClassNotFoundException c)
-        {
+        } catch (ClassNotFoundException c) {
             System.out.println("Class not found");
             c.printStackTrace();
         }
+        return loadedObject;
+    }
+    
+    /**
+     *
+     * @param object
+     * @return
+     */
+    public static boolean writeObject(Serializable object, String name){
+        try {
+            FileOutputStream fileOut = new FileOutputStream(name);
+            ObjectOutputStream out = new ObjectOutputStream(fileOut);
+            out.writeObject(object);
+            out.close();
+            fileOut.close();
+            System.out.println("Serialized data is saved in: " + name);
+            return true;
+         } catch (IOException i) {
+            System.out.println("Failed to load!");
+            i.printStackTrace();
+            return false;
+         }
     }
 }
