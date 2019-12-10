@@ -13,20 +13,42 @@ import java.io.*;
  */
 public class Serialize 
 {
-    private static Serialize instance;
+   // private static Serialize instance;
     
-    private Serialize(){}
+   // private Serialize(){}
+   // 
+   // public static Serialize getInstance()
+   // {
+    //    if (instance == null)
+    //    {
+    //        instance = new Serialize();
+    //    }
+    //    return instance;
+    //}
     
-    public static Serialize getInstance()
-    {
-        if (instance == null)
-        {
-            instance = new Serialize();
-        }
-        return instance;
+    private String name;
+    
+    Serialize(String filename){
+        name = filename;
     }
     
-    public static Serializable readObject(String name){
+    /**
+     *
+     * @param filename
+     */
+    public void setName(String filename){
+        name = filename;
+    }
+    
+    /**
+     *
+     * @return
+     */
+    public String getName(){
+        return name;
+    }
+    
+    public Serializable readObject(){
         Serializable loadedObject = null;
         try {
          FileInputStream fileIn = new FileInputStream(name);
@@ -50,7 +72,7 @@ public class Serialize
      * @param object
      * @return
      */
-    public static boolean writeObject(Serializable object, String name){
+    public boolean writeObject(Serializable object){
         try {
             FileOutputStream fileOut = new FileOutputStream(name);
             ObjectOutputStream out = new ObjectOutputStream(fileOut);

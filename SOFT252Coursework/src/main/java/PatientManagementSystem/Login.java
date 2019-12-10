@@ -5,6 +5,8 @@
  */
 package PatientManagementSystem;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author apper
@@ -132,7 +134,27 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRegisterActionPerformed
 
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
+        ArrayList<User> Patients = new ArrayList<>();
+        Serialize s = new Serialize("Data.ser");
         
+        Patients = (ArrayList<User>) s.readObject();
+        
+        User p3;
+        
+        for (int i = 0; i < Patients.size(); i++) 
+        {
+            p3 = Patients.get(i);
+            System.out.println(p3.getId());
+            System.out.println(txtId.getText());
+            if(p3.getId() == txtId.getText()) //&& p3.getPassword() == txtPassword.getText())
+            {
+                this.setVisible(false);
+            }
+            else
+            {
+                System.out.println("incorrect");
+            }
+        }
     }//GEN-LAST:event_btnSubmitActionPerformed
 
     /**
