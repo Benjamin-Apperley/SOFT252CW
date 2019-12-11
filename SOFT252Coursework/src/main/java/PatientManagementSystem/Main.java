@@ -4,7 +4,10 @@
  * and open the template in the editor.
  */
 package PatientManagementSystem;
+import PatientManagementSystem.DoctorSystem.*;
 import PatientManagementSystem.PatientSystem.*;
+import PatientManagementSystem.AdminSystem.*;
+import PatientManagementSystem.SecretarySystem.*;
 import java.util.ArrayList;
 /**
  *
@@ -17,27 +20,27 @@ public class Main
         Login login = new Login();
         login.setVisible(true);
         
-        Serialize s;
-        s = new Serialize("Data.ser");
         
         User p1 = new Patient("P1234", "John Smith", "pass", 'm', 26);
         User p2 = new Patient("P5678", "Kyle Raynor", "pass1", 'm', 27);
+        User d1 = new Doctor("D1234", "Charles McNider", "doc");
+        User a1 = new Administrator("A1234", "John Stewart", "add");
+        User s1 = new Secretary("S1234", "Jennifer Walters", "sec");
         
-        ArrayList<User> Patients = new ArrayList<>();
+        ArrayList<User> Users = new ArrayList<>();
         
-        Patients.add(p2);
-        Patients.add(p1);
+        Users.add(p2);
+        Users.add(p1);
+        Users.add(d1);
+        Users.add(a1);
+        Users.add(s1);
         
-        s.writeObject(Patients);
-        Patients = (ArrayList<User>) s.readObject();
+        Serialize.getInstance().setName("Data.ser");
         
-        User p3;
+        Serialize.getInstance().writeObject(Users);
+        Users = (ArrayList<User>) Serialize.getInstance().readObject();
         
-        for (int i = 0; i < 2; i++) 
-        {
-            p3 = Patients.get(i);
-            System.out.println(p3.getId());
-        }
+        
     }
     
     

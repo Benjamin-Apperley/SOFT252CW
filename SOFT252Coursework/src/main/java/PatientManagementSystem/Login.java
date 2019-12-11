@@ -5,6 +5,10 @@
  */
 package PatientManagementSystem;
 
+import PatientManagementSystem.AdminSystem.AdminBase;
+import PatientManagementSystem.DoctorSystem.DoctorBase;
+import PatientManagementSystem.PatientSystem.PatientBase;
+import PatientManagementSystem.SecretarySystem.SecBase;
 import java.util.ArrayList;
 
 /**
@@ -134,21 +138,43 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRegisterActionPerformed
 
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
-        ArrayList<User> Patients = new ArrayList<>();
-        Serialize s = new Serialize("Data.ser");
-        
-        Patients = (ArrayList<User>) s.readObject();
+        ArrayList<User> Users = new ArrayList<>();
+        //Serialize s = new Serialize("Data.ser");
+        Serialize.getInstance().setName("Data.ser");
+        Users = (ArrayList<User>) Serialize.getInstance().readObject();
         
         User p3;
         
-        for (int i = 0; i < Patients.size(); i++) 
+        for (int i = 0; i < Users.size(); i++) 
         {
-            p3 = Patients.get(i);
-            System.out.println(p3.getId());
-            System.out.println(txtId.getText());
-            if(p3.getId() == txtId.getText()) //&& p3.getPassword() == txtPassword.getText())
+            p3 = Users.get(i);
+            
+            char role = p3.getId().charAt(0);
+            
+            if(p3.getId().equals(txtId.getText())&& p3.getPassword().equals(txtPassword.getText()))
             {
-                this.setVisible(false);
+                switch(role)
+                {
+                    case 'P':
+                        this.setVisible(false);
+                        new PatientBase().setVisible(true);
+                        break;
+                    case 'D':
+                        this.setVisible(false);
+                        new DoctorBase().setVisible(true);
+                        break;
+                    case 'A':
+                        this.setVisible(false);
+                        new AdminBase().setVisible(true);
+                        break;
+                    case 'S':
+                        this.setVisible(false);
+                        new SecBase().setVisible(true);
+                        break;
+                    default:
+                        
+                }
+                
             }
             else
             {

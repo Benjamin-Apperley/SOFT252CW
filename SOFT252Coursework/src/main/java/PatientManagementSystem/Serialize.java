@@ -13,18 +13,18 @@ import java.io.*;
  */
 public class Serialize 
 {
-   // private static Serialize instance;
+    private static Serialize s;
     
-   // private Serialize(){}
-   // 
-   // public static Serialize getInstance()
-   // {
-    //    if (instance == null)
-    //    {
-    //        instance = new Serialize();
-    //    }
-    //    return instance;
-    //}
+    private Serialize(){}
+    
+    public static Serialize getInstance()
+    {
+        if (s == null)
+        {
+            s = new Serialize();
+        }
+       return s;
+    }
     
     private String name;
     
