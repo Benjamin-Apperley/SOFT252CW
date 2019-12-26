@@ -139,8 +139,7 @@ public class Login extends javax.swing.JFrame {
 
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
         ArrayList<User> Users = new ArrayList<>();
-        //Serialize s = new Serialize("Data.ser");
-        Serialize.getInstance().setName("Data.ser");
+        Serialize.getInstance().setName("Users.ser");
         Users = (ArrayList<User>) Serialize.getInstance().readObject();
         
         User p3;
@@ -153,6 +152,10 @@ public class Login extends javax.swing.JFrame {
             
             if(p3.getId().equals(txtId.getText())&& p3.getPassword().equals(txtPassword.getText()))
             {
+                ArrayList<User> Current = new ArrayList<>();
+                Current.add(p3);
+                Serialize.getInstance().setName("Current.ser");
+                Serialize.getInstance().writeObject(Current);                
                 switch(role)
                 {
                     case 'P':

@@ -93,16 +93,25 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Request Account Termination"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTerminationActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnAppointment">
       <Properties>
         <Property name="text" type="java.lang.String" value="View Appointment"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAppointmentActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnPrescription">
       <Properties>
         <Property name="text" type="java.lang.String" value="View Prescription"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPrescriptionActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnHistory">
       <Properties>
@@ -113,6 +122,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Request Appointment"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRequestAppointmentActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnFeedback">
       <Properties>

@@ -5,6 +5,11 @@
  */
 package PatientManagementSystem.PatientSystem;
 
+import PatientManagementSystem.Register;
+import PatientManagementSystem.Serialize;
+import PatientManagementSystem.User;
+import java.util.ArrayList;
+
 /**
  *
  * @author apper
@@ -41,14 +46,34 @@ public class PatientBase extends javax.swing.JFrame {
         lblTitle.setText("Patient Page");
 
         btnTermination.setText("Request Account Termination");
+        btnTermination.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTerminationActionPerformed(evt);
+            }
+        });
 
         btnAppointment.setText("View Appointment");
+        btnAppointment.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAppointmentActionPerformed(evt);
+            }
+        });
 
         btnPrescription.setText("View Prescription");
+        btnPrescription.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPrescriptionActionPerformed(evt);
+            }
+        });
 
         btnHistory.setText("View History");
 
         btnRequestAppointment.setText("Request Appointment");
+        btnRequestAppointment.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRequestAppointmentActionPerformed(evt);
+            }
+        });
 
         btnFeedback.setText("Doctor Feedback");
 
@@ -103,6 +128,61 @@ public class PatientBase extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnTerminationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTerminationActionPerformed
+     ArrayList<User> Terminate = new ArrayList<>();
+     Serialize.getInstance().setName("Terminate.ser");
+     Terminate = (ArrayList<User>) Serialize.getInstance().readObject();
+     ArrayList<User> current = new ArrayList<>();
+     Serialize.getInstance().setName("Current.ser");
+     current = (ArrayList<User>)Serialize.getInstance().readObject();
+     User p;
+     User c;
+     c = current.get(0);
+     
+     if(Terminate.isEmpty())
+     {
+         Terminate.add(c);
+         Serialize.getInstance().setName("Terminate.ser");
+         Serialize.getInstance().writeObject(Terminate);
+     }
+     else
+     {
+        for (int i = 0; i < Terminate.size(); i++) 
+        {
+            p = Terminate.get(i);
+            
+            if ((c.getId()).equals(p.getId()))
+            {
+                System.out.println("Account already Requested for Termination");
+            }
+            else
+            {
+                Terminate.add(c);
+                Serialize.getInstance().setName("Terminate.ser");
+                Serialize.getInstance().writeObject(Terminate);
+                break;
+            }
+        } 
+     }
+     
+     
+    }//GEN-LAST:event_btnTerminationActionPerformed
+
+    private void btnAppointmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAppointmentActionPerformed
+     this.setVisible(false);
+     new PatientAppointments().setVisible(true);
+    }//GEN-LAST:event_btnAppointmentActionPerformed
+
+    private void btnPrescriptionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrescriptionActionPerformed
+     this.setVisible(false);
+     new PatientPrescription().setVisible(true);
+    }//GEN-LAST:event_btnPrescriptionActionPerformed
+
+    private void btnRequestAppointmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRequestAppointmentActionPerformed
+     this.setVisible(false);
+     new PatientAppointmentRequest().setVisible(true);
+    }//GEN-LAST:event_btnRequestAppointmentActionPerformed
 
     /**
      * @param args the command line arguments

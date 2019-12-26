@@ -26,8 +26,12 @@ public class Main
         User d1 = new Doctor("D1234", "Charles McNider", "doc");
         User a1 = new Administrator("A1234", "John Stewart", "add");
         User s1 = new Secretary("S1234", "Jennifer Walters", "sec");
-        
+        //To make sure files are not empty when attempting to access them
         ArrayList<User> Users = new ArrayList<>();
+        ArrayList<User> Terminate = new ArrayList<>();
+        ArrayList<Appointment> Appointment = new ArrayList<>();
+        ArrayList<Prescription> Prescription = new ArrayList<>();
+        ArrayList<Appointment> AppRequest = new ArrayList<>();
         
         Users.add(p2);
         Users.add(p1);
@@ -35,10 +39,22 @@ public class Main
         Users.add(a1);
         Users.add(s1);
         
-        Serialize.getInstance().setName("Data.ser");
+        Serialize.getInstance().setName("Users.ser");
         
         Serialize.getInstance().writeObject(Users);
         Users = (ArrayList<User>) Serialize.getInstance().readObject();
+        
+        Serialize.getInstance().setName("Terminate.ser");
+        Serialize.getInstance().writeObject(Terminate);
+        
+        Serialize.getInstance().setName("Appointments.ser");
+        Serialize.getInstance().writeObject(Appointment);
+        
+        Serialize.getInstance().setName("Prescriptions.ser");
+        Serialize.getInstance().writeObject(Prescription);
+        
+        Serialize.getInstance().setName("AppRequests.ser");
+        Serialize.getInstance().writeObject(AppRequest);
         
         
     }
