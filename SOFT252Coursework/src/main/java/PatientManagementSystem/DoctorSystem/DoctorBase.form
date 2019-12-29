@@ -23,33 +23,31 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
-              <EmptySpace min="-2" pref="128" max="-2" attributes="0"/>
-              <Component id="lblTitle" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
-          </Group>
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="btnAppointments" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Component id="btnNotes" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
+                  <Component id="btnAppointments" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnPerscribe" alignment="0" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="54" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="btnCreateAppointment" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnCreateMedicine" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="128" max="-2" attributes="0"/>
+                      <Component id="lblTitle" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="125" max="-2" attributes="0"/>
                       <Component id="btnHistory" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="62" max="32767" attributes="0"/>
-                      <Component id="btnCreateAppointment" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="btnPerscribe" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Component id="btnCreateMedicine" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
                   </Group>
               </Group>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -61,19 +59,16 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="btnAppointments" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnNotes" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="btnHistory" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnCreateAppointment" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="btnPerscribe" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnCreateMedicine" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="81" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+              <Component id="btnHistory" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="90" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -91,11 +86,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="View Appointments"/>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="btnNotes">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Notes"/>
-      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAppointmentsActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnHistory">
       <Properties>
@@ -106,16 +99,25 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Create Appointment"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCreateAppointmentActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnPerscribe">
       <Properties>
         <Property name="text" type="java.lang.String" value="Perscribe Medicine"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPerscribeActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnCreateMedicine">
       <Properties>
         <Property name="text" type="java.lang.String" value="Create Medicine"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCreateMedicineActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

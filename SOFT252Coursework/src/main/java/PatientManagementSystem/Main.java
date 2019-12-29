@@ -33,6 +33,7 @@ public class Main
         ArrayList<Prescription> Prescription = new ArrayList<>();
         ArrayList<Appointment> AppRequest = new ArrayList<>();
         ArrayList<DoctorFeedback> DocFeedback = new ArrayList<>();
+        ArrayList<Medicine> Medicine = new ArrayList<>();
         
         Users.add(p2);
         Users.add(p1);
@@ -59,6 +60,9 @@ public class Main
         
         Serialize.getInstance().setName("DoctorFeedback.ser");
         Serialize.getInstance().writeObject(DocFeedback);
+        
+        Serialize.getInstance().setName("Medicine.ser");
+        Serialize.getInstance().writeObject(Medicine);
     }
     
     
