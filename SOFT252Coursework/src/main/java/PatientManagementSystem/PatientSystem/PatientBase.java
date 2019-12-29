@@ -76,6 +76,11 @@ public class PatientBase extends javax.swing.JFrame {
         });
 
         btnFeedback.setText("Doctor Feedback");
+        btnFeedback.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFeedbackActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -183,6 +188,11 @@ public class PatientBase extends javax.swing.JFrame {
      this.setVisible(false);
      new PatientAppointmentRequest().setVisible(true);
     }//GEN-LAST:event_btnRequestAppointmentActionPerformed
+
+    private void btnFeedbackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFeedbackActionPerformed
+     this.setVisible(false);
+     new PatientFeedback().setVisible(true);
+    }//GEN-LAST:event_btnFeedbackActionPerformed
 
     /**
      * @param args the command line arguments
