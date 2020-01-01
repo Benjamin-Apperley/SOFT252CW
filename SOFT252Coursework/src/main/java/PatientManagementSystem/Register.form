@@ -24,7 +24,7 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace pref="74" max="32767" attributes="0"/>
+              <EmptySpace pref="123" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
                   <Component id="lblTitle" min="-2" max="-2" attributes="0"/>
                   <Group type="102" attributes="0">
@@ -36,12 +36,14 @@
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="txtName" max="32767" attributes="0"/>
-                          <Component id="txtAge" min="-2" pref="23" max="-2" attributes="0"/>
+                          <Component id="txtName" pref="95" max="32767" attributes="0"/>
                           <Component id="txtPassword" alignment="0" max="32767" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="txtGender" min="-2" pref="56" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="txtGender" max="32767" attributes="0"/>
+                                  <Component id="txtAge" pref="23" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="lblMF" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -128,7 +130,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="lblMF">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Male or Female "/>
+        <Property name="text" type="java.lang.String" value="m or f"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="btnRegister">

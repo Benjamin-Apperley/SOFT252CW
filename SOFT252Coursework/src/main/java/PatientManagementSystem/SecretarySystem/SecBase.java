@@ -38,10 +38,25 @@ public class SecBase extends javax.swing.JFrame {
         lblTitle.setText("Secretary Page");
 
         btnAccount.setText("Approve Patient Accounts");
+        btnAccount.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAccountActionPerformed(evt);
+            }
+        });
 
         btnAppointments.setText("Appointment Requests");
+        btnAppointments.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAppointmentsActionPerformed(evt);
+            }
+        });
 
         btnRemovePatient.setText("Remove Patients");
+        btnRemovePatient.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRemovePatientActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -79,6 +94,21 @@ public class SecBase extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAccountActionPerformed
+        this.setVisible(false);
+        new SecretaryApproveAccount().setVisible(true);
+    }//GEN-LAST:event_btnAccountActionPerformed
+
+    private void btnAppointmentsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAppointmentsActionPerformed
+        this.setVisible(false);
+        new SecretaryApproveAppointment().setVisible(true);
+    }//GEN-LAST:event_btnAppointmentsActionPerformed
+
+    private void btnRemovePatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemovePatientActionPerformed
+        this.setVisible(false);
+        new SecretaryRemove().setVisible(true);
+    }//GEN-LAST:event_btnRemovePatientActionPerformed
 
     /**
      * @param args the command line arguments

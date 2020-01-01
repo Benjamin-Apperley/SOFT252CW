@@ -75,16 +75,25 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Approve Patient Accounts"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAccountActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnAppointments">
       <Properties>
         <Property name="text" type="java.lang.String" value="Appointment Requests"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAppointmentsActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnRemovePatient">
       <Properties>
         <Property name="text" type="java.lang.String" value="Remove Patients"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRemovePatientActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

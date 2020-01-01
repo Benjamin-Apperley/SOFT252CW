@@ -5,6 +5,9 @@
  */
 package PatientManagementSystem;
 
+import PatientManagementSystem.PatientSystem.Patient;
+import java.util.ArrayList;
+
 /**
  *
  * @author apper
@@ -52,7 +55,7 @@ public class Register extends javax.swing.JFrame {
 
         lblPassword.setText("Password");
 
-        lblMF.setText("Male or Female ");
+        lblMF.setText("m or f");
 
         btnRegister.setText("Register");
         btnRegister.addActionListener(new java.awt.event.ActionListener() {
@@ -66,7 +69,7 @@ public class Register extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(74, Short.MAX_VALUE)
+                .addContainerGap(123, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(lblTitle)
                     .addGroup(layout.createSequentialGroup()
@@ -77,12 +80,13 @@ public class Register extends javax.swing.JFrame {
                             .addComponent(lblPassword))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtName)
-                            .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtName, javax.swing.GroupLayout.DEFAULT_SIZE, 95, Short.MAX_VALUE)
                             .addComponent(txtPassword)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(txtGender, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(txtGender)
+                                    .addComponent(txtAge, javax.swing.GroupLayout.DEFAULT_SIZE, 23, Short.MAX_VALUE))
+                                .addGap(18, 18, 18)
                                 .addComponent(lblMF)))))
                 .addGap(140, 140, 140))
             .addGroup(layout.createSequentialGroup()
@@ -121,7 +125,62 @@ public class Register extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
+        ArrayList<User> AccountRequests = new ArrayList<>();
+        Serialize.getInstance().setName("AccountRequests.ser");
+        AccountRequests = (ArrayList<User>)Serialize.getInstance().readObject();
         
+        ArrayList<User> Users = new ArrayList<>();
+        Serialize.getInstance().setName("Users.ser");
+        Users = (ArrayList<User>)Serialize.getInstance().readObject();
+        
+        User u;
+        int temp = 0;
+        for(int i = 0; i < Users.size(); i++)
+        {
+            u = Users.get(i);
+            char one = u.getId().charAt(1);
+            char two = u.getId().charAt(2);
+            char three = u.getId().charAt(3);
+            int number = Integer.parseInt(String.valueOf(one + two + three));
+            if(number > temp)
+            {
+                temp = number;
+            }
+        }
+        temp++;
+        String id = "P" + Integer.toString(temp); 
+        User p;
+        if(AccountRequests.isEmpty())
+        {
+            p = new Patient(id, txtName.getText(), txtPassword.getText(), txtGender.getText().charAt(0), Integer.parseInt(txtAge.getText()));
+            AccountRequests.add(p);
+            Serialize.getInstance().setName("AccountRequests.ser");
+            Serialize.getInstance().writeObject(AccountRequests);
+        }
+        else
+        {
+            boolean found = false;
+            for(int i = 0; i < Users.size(); i++)
+            {
+                u = Users.get(i);
+                if(u.getId().equals(id))
+                {
+                    found = true;
+                    break;
+                }
+                else
+                {
+                    
+                }
+            }
+            if(found == false)
+            {
+                p = new Patient(id, txtName.getText(), txtPassword.getText(), txtGender.getText().charAt(0), Integer.parseInt(txtAge.getText()));
+                Serialize.getInstance().setName("AccountRequests.ser");
+                Serialize.getInstance().writeObject(AccountRequests);
+            }
+            
+        }
     }//GEN-LAST:event_btnRegisterActionPerformed
 
     /**

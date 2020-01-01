@@ -95,21 +95,21 @@ public class DoctorMedicine extends javax.swing.JFrame {
         Medicine = (ArrayList<Medicine>)Serialize.getInstance().readObject();
         
         Medicine m;
-        
-        for(int i = 0; i < Medicine.size(); i++)
+        boolean found = false;
+        if(Medicine.isEmpty())
         {
-            if(Medicine.isEmpty())
-            {
-                m = new Medicine(txtName.getText());
-                Medicine.add(m);
-                Serialize.getInstance().writeObject(Medicine);
-                break;
-            }
-            else
+            m = new Medicine(txtName.getText());
+            Medicine.add(m);
+            Serialize.getInstance().writeObject(Medicine);  
+        }
+        else
+        {
+            for(int i = 0; i < Medicine.size(); i++)
             {
                 m = Medicine.get(i);
                 if(m.getName().equals(txtName.getText()))
-                {
+                {   
+                    found = true;
                     break;
                 }
                 else
@@ -117,10 +117,14 @@ public class DoctorMedicine extends javax.swing.JFrame {
                     
                 }
             }
-            m = new Medicine(txtName.getText());
-            Medicine.add(m);
-            Serialize.getInstance().writeObject(Medicine);
+            if(found == false)
+            {
+                m = new Medicine(txtName.getText());
+                Medicine.add(m);
+                Serialize.getInstance().writeObject(Medicine);
+            }
         }
+        
     }//GEN-LAST:event_btnCreateActionPerformed
 
     /**
