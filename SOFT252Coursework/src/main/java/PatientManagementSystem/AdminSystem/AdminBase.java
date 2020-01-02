@@ -38,6 +38,11 @@ public class AdminBase extends javax.swing.JFrame {
         lblTitle.setText("Admin Page");
 
         btnAddRem.setText("Add/Remove Doctor/Secretary");
+        btnAddRem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddRemActionPerformed(evt);
+            }
+        });
 
         btnRatings.setText("View Ratings");
 
@@ -79,6 +84,11 @@ public class AdminBase extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnAddRemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddRemActionPerformed
+        this.setVisible(false);
+        new AdminAddRemoveUser().setVisible(true);
+    }//GEN-LAST:event_btnAddRemActionPerformed
 
     /**
      * @param args the command line arguments

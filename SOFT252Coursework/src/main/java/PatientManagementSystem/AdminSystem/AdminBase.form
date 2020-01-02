@@ -75,6 +75,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Add/Remove Doctor/Secretary"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAddRemActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnRatings">
       <Properties>
