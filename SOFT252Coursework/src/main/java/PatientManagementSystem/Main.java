@@ -23,7 +23,10 @@ public class Main
         
         User p1 = new Patient("P1234", "John Smith", "pass", 'm', 26);
         User p2 = new Patient("P5678", "Kyle Raynor", "pass1", 'm', 27);
+        User p3 = new Patient("P4321", "Hal Jordan", "pass2", 'm', 28);
         User d1 = new Doctor("D1234", "Charles McNider", "doc");
+        User d2 = new Doctor("D1235", "Ted Knight", "doc1");
+        User d3 = new Doctor("D1236", "Al Pratt", "doc2");
         User a1 = new Administrator("A1234", "John Stewart", "add");
         User s1 = new Secretary("S1234", "Jennifer Walters", "sec");
         //To make sure files are not empty when attempting to access them
@@ -35,6 +38,7 @@ public class Main
         ArrayList<DoctorFeedback> DocFeedback = new ArrayList<>();
         ArrayList<Medicine> Medicine = new ArrayList<>();
         ArrayList<User> AccountRequests = new ArrayList<>();
+        ArrayList<DoctorFinalFeedback> FinalFeedback = new ArrayList<>();
         
         Users.add(p2);
         Users.add(p1);
@@ -43,9 +47,7 @@ public class Main
         Users.add(s1);
         
         Serialize.getInstance().setName("Users.ser");
-        
         Serialize.getInstance().writeObject(Users);
-        Users = (ArrayList<User>) Serialize.getInstance().readObject();
         
         Serialize.getInstance().setName("Terminate.ser");
         Serialize.getInstance().writeObject(Terminate);
@@ -67,6 +69,9 @@ public class Main
         
         Serialize.getInstance().setName("AccountRequests.ser");
         Serialize.getInstance().writeObject(AccountRequests);
+        
+        Serialize.getInstance().setName("FinalFeedback.ser");
+        Serialize.getInstance().writeObject(FinalFeedback);
     }
     
     

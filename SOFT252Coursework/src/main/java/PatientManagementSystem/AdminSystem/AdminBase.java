@@ -45,8 +45,18 @@ public class AdminBase extends javax.swing.JFrame {
         });
 
         btnRatings.setText("View Ratings");
+        btnRatings.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRatingsActionPerformed(evt);
+            }
+        });
 
         btnFeedback.setText("Provide Feedback");
+        btnFeedback.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFeedbackActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -89,6 +99,16 @@ public class AdminBase extends javax.swing.JFrame {
         this.setVisible(false);
         new AdminAddRemoveUser().setVisible(true);
     }//GEN-LAST:event_btnAddRemActionPerformed
+
+    private void btnRatingsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRatingsActionPerformed
+        this.setVisible(false);
+        new AdminAddRemoveUser().setVisible(true);
+    }//GEN-LAST:event_btnRatingsActionPerformed
+
+    private void btnFeedbackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFeedbackActionPerformed
+        this.setVisible(false);
+        new AdminFeedback().setVisible(true);
+    }//GEN-LAST:event_btnFeedbackActionPerformed
 
     /**
      * @param args the command line arguments

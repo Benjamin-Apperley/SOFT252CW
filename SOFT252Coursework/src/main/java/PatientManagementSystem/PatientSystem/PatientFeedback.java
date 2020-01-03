@@ -174,12 +174,6 @@ public class PatientFeedback extends javax.swing.JFrame {
         Serialize.getInstance().setName("DoctorFeedback.ser");
         Feedback = (ArrayList<DoctorFeedback>) Serialize.getInstance().readObject();
         
-        ArrayList<User> current = new ArrayList<>();
-        Serialize.getInstance().setName("Current.ser");
-        current = (ArrayList<User>)Serialize.getInstance().readObject();
-        User c;
-        c = current.get(0);
-        
         DoctorFeedback f;
         int temp = 0;
         int count = 0;
@@ -218,27 +212,44 @@ public class PatientFeedback extends javax.swing.JFrame {
         
         DoctorFeedback f;
         boolean overwrite = false;
-        for (int i = 0; i < Feedback.size(); i++) 
+        
+        DoctorFeedback b = new DoctorFeedback(txtDoctortoRate.getText(), c.getId(), Integer.parseInt(txtRatingtoGive.getText()), txtFeedback.getText());
+        
+        if(Feedback.isEmpty())
         {
-            f = Feedback.get(i);
-            if(f.getDoctorId().equals(txtDoctortoRate.getText()) && f.getPatientId().equals(c.getId()))
+            Feedback.add(b);
+            Serialize.getInstance().setName("DoctorFeedback.ser");
+            Serialize.getInstance().writeObject(Feedback);
+        }
+        else
+        {
+            for (int i = 0; i < Feedback.size(); i++) 
             {
-                DoctorFeedback b = new DoctorFeedback(txtDoctortoRate.getText(), c.getId(), Integer.parseInt(txtRatingtoGive.getText()), txtFeedback.getText());
-                Feedback.add(i, b);
-                overwrite = true;
-                break;
-            }
-            else
-            {
+                f = Feedback.get(i);
+                if(f.getDoctorId().equals(txtDoctortoRate.getText()) && f.getPatientId().equals(c.getId()))
+                {
+                    Feedback.remove(i);
+                    Feedback.add(i, b);
+                    Serialize.getInstance().setName("DoctorFeedback.ser");
+                    Serialize.getInstance().writeObject(Feedback);
+                    overwrite = true;
+                    break;
+                }
+                else
+                {
                 
+                }
+            }
+        
+            if(!overwrite)
+            {
+                Feedback.add(b);
+                Serialize.getInstance().setName("DoctorFeedback.ser");
+                Serialize.getInstance().writeObject(Feedback);
             }
         }
         
-        if(!overwrite)
-        {
-            DoctorFeedback b = new DoctorFeedback(txtDoctortoRate.getText(), c.getId(), Integer.parseInt(txtRatingtoGive.getText()), txtFeedback.getText());
-            Feedback.add(b);
-        }
+        
     }//GEN-LAST:event_btnSubmitActionPerformed
 
     /**

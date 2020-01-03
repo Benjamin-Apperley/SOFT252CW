@@ -5,6 +5,7 @@
  */
 package PatientManagementSystem.PatientSystem;
 
+import PatientManagementSystem.Appointment;
 import PatientManagementSystem.Serialize;
 import PatientManagementSystem.User;
 import java.util.ArrayList;
@@ -38,6 +39,8 @@ public class PatientAppointmentRequest extends javax.swing.JFrame {
         btnSubmit = new javax.swing.JButton();
         lblDoctor = new javax.swing.JLabel();
         txtDoctor = new javax.swing.JTextField();
+        txtDates = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -57,6 +60,8 @@ public class PatientAppointmentRequest extends javax.swing.JFrame {
 
         lblDoctor.setText("Doctor");
 
+        jLabel1.setText("Dates");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -74,7 +79,14 @@ public class PatientAppointmentRequest extends javax.swing.JFrame {
                         .addGroup(layout.createSequentialGroup()
                             .addGap(25, 25, 25)
                             .addComponent(txtDoctor, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(182, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(txtDates, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(74, 74, 74))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(91, 91, 91))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -82,9 +94,13 @@ public class PatientAppointmentRequest extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(btnSubmit)
                 .addGap(4, 4, 4)
-                .addComponent(lblDoctor)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblDoctor)
+                    .addComponent(jLabel1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtDoctor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtDoctor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtDates, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 188, Short.MAX_VALUE)
                 .addComponent(btnBack)
                 .addContainerGap())
@@ -99,28 +115,53 @@ public class PatientAppointmentRequest extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
-        ArrayList<User> Users = new ArrayList<>();
-        Serialize.getInstance().setName("Users.ser");
-        Users = (ArrayList<User>) Serialize.getInstance().readObject();
+        ArrayList<Appointment> AppointmentRequests = new ArrayList<>();
+        Serialize.getInstance().setName("AppRequests.ser");
+        AppointmentRequests = (ArrayList<Appointment>)Serialize.getInstance().readObject();
         
-        User d;
+        ArrayList<User> current = new ArrayList<>();
+        Serialize.getInstance().setName("Current.ser");
+        current = (ArrayList<User>)Serialize.getInstance().readObject();
+        User c;
+        c = current.get(0);
         
+        Appointment a;
+        Appointment n = new Appointment(txtDoctor.getText(), c.getId(), txtDates.getText());
+        boolean found = false;
         
-        for (int i = 0; i < Users.size(); i++) 
+        if(AppointmentRequests.isEmpty())
         {
-            d = Users.get(i);
-            
-            char role = d.getId().charAt(0);
-            
-            switch(role)
-            {
-                    case 'D':
-                        
-                        break;
-                    default:
-                        
-             }
+            AppointmentRequests.add(n);
+            Serialize.getInstance().setName("AppRequests.ser");
+            Serialize.getInstance().writeObject(AppointmentRequests);
         }
+        else
+        {
+            for(int i = 0; i < AppointmentRequests.size(); i++)
+            {
+                a = AppointmentRequests.get(i);
+                if(a.getDoctorId().equals(txtDoctor.getText()) && a.getPatientId().equals(c.getId()))
+                {
+                    AppointmentRequests.remove(i);
+                    AppointmentRequests.add(i, n);
+                    Serialize.getInstance().setName("AppRequests.ser");
+                    Serialize.getInstance().writeObject(AppointmentRequests);
+                    found = true;
+                }
+                else
+                {
+                    
+                }
+            }
+            if(!found)
+            {
+                AppointmentRequests.add(n);
+                Serialize.getInstance().setName("AppRequests.ser");
+                Serialize.getInstance().writeObject(AppointmentRequests);
+            }
+        }
+        
+        
     }//GEN-LAST:event_btnSubmitActionPerformed
 
     /**
@@ -161,7 +202,9 @@ public class PatientAppointmentRequest extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnSubmit;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblDoctor;
+    private javax.swing.JTextField txtDates;
     private javax.swing.JTextField txtDoctor;
     // End of variables declaration//GEN-END:variables
 }
