@@ -31,6 +31,7 @@ public class SerializeTest {
     {
         ArrayList<User> users = new ArrayList<User>();
         users.add(u52);
+        Serialize.getInstance().setName("Test.ser");
         assertTrue(Serialize.getInstance().writeObject(users));
         
     }

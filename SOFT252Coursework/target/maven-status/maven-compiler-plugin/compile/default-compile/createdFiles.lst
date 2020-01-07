@@ -16,6 +16,7 @@ PatientManagementSystem\DoctorSystem\DoctorBase$5.class
 PatientManagementSystem\DoctorSystem\DoctorMedicine.class
 PatientManagementSystem\SecretarySystem\SecretaryApproveAccount$3.class
 PatientManagementSystem\PatientSystem\PatientFeedback$2.class
+PatientManagementSystem\AdminSystem\AdminFeedback$4.class
 PatientManagementSystem\AdminSystem\AdminRatings$4.class
 PatientManagementSystem\DoctorSystem\DoctorCreateAppointment$1.class
 PatientManagementSystem\SecretarySystem\SecBase$1.class
@@ -62,7 +63,6 @@ PatientManagementSystem\DoctorSystem\DoctorCreateAppointment$2.class
 PatientManagementSystem\AdminSystem\AdminBase$2.class
 PatientManagementSystem\DoctorSystem\DoctorViewHistory$2.class
 PatientManagementSystem\SecretarySystem\SecretaryApproveAppointment$1.class
-PatientManagementSystem\AccountRequest.class
 PatientManagementSystem\AdminSystem\AdminFeedback$3.class
 PatientManagementSystem\AdminSystem\Administrator.class
 PatientManagementSystem\DoctorFeedback.class
