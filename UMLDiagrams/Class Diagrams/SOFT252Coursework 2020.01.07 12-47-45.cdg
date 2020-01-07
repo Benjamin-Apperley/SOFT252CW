@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="SOFT252Coursework">
+  <ClassDiagramComponents>
+    <Class name="Administrator" package="PatientManagementSystem.AdminSystem" visibility="public" xPosition="296.0" yPosition="1159.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="id"/>
+          <Argument type="String" name="name"/>
+          <Argument type="String" name="password"/>
+        </Constructor>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="Appointment" package="PatientManagementSystem" visibility="public" xPosition="1506.0" yPosition="39.0">
+      <Fields>
+        <Field name="doctorId" type="String" visibility="public"/>
+        <Field name="patientId" type="String" visibility="public"/>
+        <Field name="dates" type="String" visibility="public"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="dId"/>
+          <Argument type="String" name="pId"/>
+          <Argument type="String" name="date"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getDoctorId" returnType="String" visibility="public"/>
+        <Method name="setDoctorId" returnType="void" visibility="public">
+          <Argument type="String" name="doctorId"/>
+        </Method>
+        <Method name="getPatientId" returnType="String" visibility="public"/>
+        <Method name="setPatientId" returnType="void" visibility="public">
+          <Argument type="String" name="patientId"/>
+        </Method>
+        <Method name="getDates" returnType="String" visibility="public"/>
+        <Method name="setDates" returnType="void" visibility="public">
+          <Argument type="String" name="dates"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="DoctorFeedback" package="PatientManagementSystem" visibility="public" xPosition="473.0" yPosition="84.0">
+      <Fields>
+        <Field name="doctorId" type="String" visibility="public"/>
+        <Field name="patientId" type="String" visibility="public"/>
+        <Field name="rating" type="int" visibility="public"/>
+        <Field name="notes" type="String" visibility="public"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="doctorId"/>
+          <Argument type="String" name="patientId"/>
+          <Argument type="int" name="rating"/>
+          <Argument type="String" name="notes"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getDoctorId" returnType="String" visibility="public"/>
+        <Method name="setDoctorId" returnType="void" visibility="public">
+          <Argument type="String" name="doctorId"/>
+        </Method>
+        <Method name="getPatientId" returnType="String" visibility="public"/>
+        <Method name="setPatientId" returnType="void" visibility="public">
+          <Argument type="String" name="patientId"/>
+        </Method>
+        <Method name="getRating" returnType="int" visibility="public"/>
+        <Method name="setRating" returnType="void" visibility="public">
+          <Argument type="int" name="rating"/>
+        </Method>
+        <Method name="getNotes" returnType="String" visibility="public"/>
+        <Method name="setNotes" returnType="void" visibility="public">
+          <Argument type="String" name="notes"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="DoctorFinalFeedback" package="PatientManagementSystem" visibility="public" xPosition="20.0" yPosition="96.0">
+      <Fields>
+        <Field name="doctorId" type="String" visibility="public"/>
+        <Field name="notes" type="String" visibility="public"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="doctorId"/>
+          <Argument type="String" name="notes"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getDoctorId" returnType="String" visibility="public"/>
+        <Method name="setDoctorId" returnType="void" visibility="public">
+          <Argument type="String" name="doctorId"/>
+        </Method>
+        <Method name="getNotes" returnType="String" visibility="public"/>
+        <Method name="setNotes" returnType="void" visibility="public">
+          <Argument type="String" name="notes"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Doctor" package="PatientManagementSystem.DoctorSystem" visibility="public" xPosition="137.0" yPosition="1306.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="id"/>
+          <Argument type="String" name="name"/>
+          <Argument type="String" name="password"/>
+        </Constructor>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="Main" package="PatientManagementSystem" visibility="public" xPosition="236.0" yPosition="346.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Medicine" package="PatientManagementSystem" visibility="public" xPosition="30.0" yPosition="346.0">
+      <Fields>
+        <Field name="name" type="String" visibility="public"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="name"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getName" returnType="String" visibility="public"/>
+        <Method name="setName" returnType="void" visibility="public">
+          <Argument type="String" name="name"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Patient" package="PatientManagementSystem.PatientSystem" visibility="public" xPosition="656.0" yPosition="1145.0">
+      <Fields>
+        <Field name="gender" type="char" visibility="private"/>
+        <Field name="age" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="id"/>
+          <Argument type="String" name="name"/>
+          <Argument type="String" name="password"/>
+          <Argument type="char" name="gender"/>
+          <Argument type="int" name="age"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getGender" returnType="char" visibility="public"/>
+        <Method name="setGender" returnType="void" visibility="public">
+          <Argument type="char" name="gender"/>
+        </Method>
+        <Method name="getAge" returnType="int" visibility="public"/>
+        <Method name="setAge" returnType="void" visibility="public">
+          <Argument type="int" name="age"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Prescription" package="PatientManagementSystem" visibility="public" xPosition="39.0" yPosition="554.0">
+      <Fields>
+        <Field name="doctorId" type="String" visibility="public"/>
+        <Field name="patientId" type="String" visibility="public"/>
+        <Field name="notes" type="String" visibility="public"/>
+        <Field name="medicine" type="String" visibility="public"/>
+        <Field name="quantity" type="int" visibility="public"/>
+        <Field name="dosage" type="String" visibility="public"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="doctorId"/>
+          <Argument type="String" name="patientId"/>
+          <Argument type="String" name="notes"/>
+          <Argument type="String" name="medicine"/>
+          <Argument type="int" name="quantity"/>
+          <Argument type="String" name="dosage"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getDoctorId" returnType="String" visibility="public"/>
+        <Method name="setDoctorId" returnType="void" visibility="public">
+          <Argument type="String" name="doctorId"/>
+        </Method>
+        <Method name="getPatientId" returnType="String" visibility="public"/>
+        <Method name="setPatientId" returnType="void" visibility="public">
+          <Argument type="String" name="patientId"/>
+        </Method>
+        <Method name="getNotes" returnType="String" visibility="public"/>
+        <Method name="setNotes" returnType="void" visibility="public">
+          <Argument type="String" name="notes"/>
+        </Method>
+        <Method name="getMedicine" returnType="String" visibility="public"/>
+        <Method name="setMedicine" returnType="void" visibility="public">
+          <Argument type="String" name="medicine"/>
+        </Method>
+        <Method name="getQuantity" returnType="int" visibility="public"/>
+        <Method name="setQuantity" returnType="void" visibility="public">
+          <Argument type="int" name="quantity"/>
+        </Method>
+        <Method name="getDosage" returnType="String" visibility="public"/>
+        <Method name="setDosage" returnType="void" visibility="public">
+          <Argument type="String" name="dosage"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Secretary" package="PatientManagementSystem.SecretarySystem" visibility="public" xPosition="782.0" yPosition="1435.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="id"/>
+          <Argument type="String" name="name"/>
+          <Argument type="String" name="password"/>
+        </Constructor>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="Serialize" package="PatientManagementSystem" visibility="public" xPosition="39.0" yPosition="1537.0">
+      <Fields>
+        <Field name="s" type="Serialize" visibility="private" isStatic="true"/>
+        <Field name="name" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="private"/>
+        <Constructor visibility="package">
+          <Argument type="String" name="filename"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getInstance" returnType="Serialize" visibility="public" isStatic="true"/>
+        <Method name="setName" returnType="void" visibility="public">
+          <Argument type="String" name="filename"/>
+        </Method>
+        <Method name="getName" returnType="String" visibility="public"/>
+        <Method name="readObject" returnType="Serializable" visibility="public"/>
+        <Method name="writeObject" returnType="boolean" visibility="public">
+          <Argument type="Serializable" name="object"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="User" package="PatientManagementSystem" visibility="public" isAbstract="true" xPosition="395.0" yPosition="1537.0">
+      <Fields>
+        <Field name="id" type="String" visibility="protected"/>
+        <Field name="name" type="String" visibility="protected"/>
+        <Field name="password" type="String" visibility="protected"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="getId" returnType="String" visibility="public"/>
+        <Method name="setId" returnType="void" visibility="public">
+          <Argument type="String" name="id"/>
+        </Method>
+        <Method name="getName" returnType="String" visibility="public"/>
+        <Method name="setName" returnType="void" visibility="public">
+          <Argument type="String" name="name"/>
+        </Method>
+        <Method name="getPassword" returnType="String" visibility="public"/>
+        <Method name="setPassword" returnType="void" visibility="public">
+          <Argument type="String" name="password"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <IsRelation name="is" source="PatientManagementSystem.AdminSystem.Administrator" target="PatientManagementSystem.User"/>
+    <HasRelation name="s" source="PatientManagementSystem.Serialize" target="PatientManagementSystem.Serialize" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="PatientManagementSystem.DoctorSystem.Doctor" target="PatientManagementSystem.User"/>
+    <IsRelation name="is" source="PatientManagementSystem.PatientSystem.Patient" target="PatientManagementSystem.User"/>
+    <UseRelation source="PatientManagementSystem.Serialize" target="PatientManagementSystem.Serialize" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="PatientManagementSystem.SecretarySystem.Secretary" target="PatientManagementSystem.User"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
