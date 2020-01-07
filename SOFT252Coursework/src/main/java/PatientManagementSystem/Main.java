@@ -29,6 +29,17 @@ public class Main
         User d3 = new Doctor("D1236", "Al Pratt", "doc2");
         User a1 = new Administrator("A1234", "John Stewart", "add");
         User s1 = new Secretary("S1234", "Jennifer Walters", "sec");
+        
+        Medicine m1 = new Medicine("Green Kryptonite");
+        Medicine m2 = new Medicine("Red Kryptonite");
+        Medicine m3 = new Medicine("Blue Kryptonite");
+        Medicine m4 = new Medicine("White Kryptonite");
+        Medicine m5 = new Medicine("Gold Kryptonite");
+        Medicine m6 = new Medicine("Silver Kryptonite");
+        Medicine m7 = new Medicine("Black Kryptonite");
+        Medicine m8 = new Medicine("Orange Kryptonite");
+        Medicine m9 = new Medicine("Pink Kryptonite");
+        Medicine m10 = new Medicine("Periwinkle Kryptonite");
         //To make sure files are not empty when attempting to access them
         ArrayList<User> Users = new ArrayList<>();
         ArrayList<User> Terminate = new ArrayList<>();
@@ -45,6 +56,17 @@ public class Main
         Users.add(d1);
         Users.add(a1);
         Users.add(s1);
+        
+        Medicine.add(m1);
+        Medicine.add(m2);
+        Medicine.add(m3);
+        Medicine.add(m4);
+        Medicine.add(m5);
+        Medicine.add(m6);
+        Medicine.add(m7);
+        Medicine.add(m8);
+        Medicine.add(m9);
+        Medicine.add(m10);
         
         Serialize.getInstance().setName("Users.ser");
         Serialize.getInstance().writeObject(Users);
